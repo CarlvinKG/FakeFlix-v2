@@ -5,6 +5,7 @@
 @theme {
   --background-image-banner-pattern: url("/cabnw.jpg");
   --background-image-banner-pattern2: url("/cabnw-m.jpg");
+  --background-image-login: url("/login-bg.jpg");
 
   --breakpoint-sm: 500px;
   --breakpoint-md: 800px;
@@ -37,6 +38,60 @@ root {
 }
 
 @layer components {
+  /** Login **/
+
+  .login-pattern {
+    @apply bg-login w-[100%] h-full bg-cover absolute z-0 mask-l-from-1%;
+  }
+
+  .login {
+    @apply relative py-2 px-[8%] z-20;
+
+    & .login-logo {
+      @apply w-38;
+    }
+
+    & .form {
+      @apply w-full max-w-md bg-black/75 rounded-md p-15 m-auto;
+
+      & h1 {
+        @apply text-[32px] font-medium mb-7;
+      }
+
+      & input {
+        @apply w-full h-12 bg-[#333333] text-white text-sm font-medium my-3 mx-0 outline-none rounded-sm py-4 px-5;
+      }
+
+      & input::placeholder {
+        @apply text-sm font-medium;
+      }
+
+      & button {
+        @apply w-full p-4 bg-[#E50914] text-white text-sm font-medium rounded-sm mt-5 cursor-pointer;
+      }
+
+      & .help {
+        @apply flex items-center justify-between text-[#B3B3B3] text-[13px];
+
+        & .remember {
+          @apply flex items-center gap-1;
+
+          & input {
+            @apply w-4.5 h-4.5;
+          }
+        }
+      }
+    }
+
+    & .switch {
+      @apply mt-10 text-[#737373];
+
+      & span {
+        @apply ml-1.5 text-white font-medium cursor-pointer;
+      }
+    }
+  }
+
   /** NavBar **/
   .navbar {
     @apply w-full py-[20px] px-[6%] md:px-[3.5%] flex justify-between text-[min(1vw,14px)] text-[#E5E5E5] fixed z-10;
@@ -156,10 +211,10 @@ root {
     @apply mt-12 mb-8;
 
     & .title-prog-bar {
-      @apply flex justify-between items-center w-full mb-2 px-[6.8%] md:px-[2.5%];
+      @apply flex justify-between items-center w-full mb-2 px-[32px] sm:px-[40px] md:px-[40px] lg:px-[42px] xl:px-[45px];
 
       & .title {
-        @apply text-2xl font-semibold;
+        @apply text-[min(4.5vw,24px)] font-semibold;
       }
 
       & .progress-bar {
@@ -203,7 +258,7 @@ root {
           }
 
           & .movie-title {
-            @apply absolute text-center text-[min(2.5vw,13px)] bottom-0 w-[97%] p-1 bg-black/50 rounded-b-sm;
+            @apply absolute text-center text-[min(2.5vw,13px)] font-bold bottom-0 w-[97%] p-1 bg-black/25 rounded-b-sm;
           }
         }
       }

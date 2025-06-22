@@ -12,7 +12,7 @@ const Links = () => {
     ]
 
   return <ul>
-      {links.map((link, index) => <li key={index}>{link}</li>)}
+      {links.map((link, index) => <li key={index}><a href={`${link === 'Home' ? 'home' : '/'}`}>{link}</a></li>)}
   </ul>
 }
 
