@@ -7,6 +7,9 @@
   --background-image-banner-pattern2: url("/cabnw-m.jpg");
   --background-image-login: url("/login-bg.jpg");
 
+  --color-dark-100: #0f0d23;
+  --color-light-100: #cecefb;
+
   --breakpoint-sm: 500px;
   --breakpoint-md: 800px;
   --breakpoint-lg: 1100px;
@@ -31,7 +34,7 @@ root {
   body {
     font-family: "poppins", serif;
     font-optical-sizing: auto;
-    background-color: black;
+    background-color: #080808;
     color: white;
     width: 100%;
   }
@@ -107,7 +110,7 @@ root {
         @apply  md:hidden text-sm;
 
         & .open-hamburger {
-          @apply absolute top-0 left-0 w-screen h-screen pl-[6%] pt-[17px] bg-black/95 z-1;
+          @apply absolute top-0 left-0 w-screen h-screen pl-[6%] pt-[17px] bg-[#080808] z-10;
 
           & ul {
             @apply list-none grid grid-cols-1 pt-5;
@@ -130,6 +133,10 @@ root {
 
     & .nav-right {
       @apply flex items-center gap-5;
+
+      & svg {
+        @apply cursor-pointer;
+      }
 
       & .icons {
         @apply w-[20px] cursor-pointer;
@@ -264,7 +271,7 @@ root {
       }
 
       & .arrow {
-        @apply grow-0 flex justify-center border-none p-2.5 z-10 content-center items-center w-[6%] cursor-pointer transition ease-in duration-300;
+        @apply grow-0 flex justify-center border-none p-2.5 z-4 content-center items-center w-[6%] cursor-pointer transition ease-in duration-300;
 
         & .fill {
           @apply transition ease-in duration-200;
@@ -293,9 +300,90 @@ root {
     }
   }
 
+  /** Search **/
+  .search-wrapper {
+    @apply relative w-full h-full m-auto;
+
+    & .search-container {
+      @apply lg:flex gap-8 w-[90%] bg-gray-800 mx-[5%] rounded-md p-10;
+
+      & .search {
+        @apply w-full lg:w-[40%] px-2 py-3 rounded-lg mt-1 min-w-[200px] mx-auto;
+
+        & div {
+          @apply relative flex items-center;
+        }
+
+        & svg {
+          @apply absolute left-2 h-5 w-5;
+        }
+
+        & input {
+          @apply w-full bg-white/50 py-2 sm:pr-10 pl-10 text-base text-gray-200 outline-hidden rounded-sm;
+        }
+      }
+
+      & .results {
+        @apply relative;
+
+        & h2 {
+          @apply py-3 text-3xl text-white font-bold line-clamp-1  mb-0;
+        }
+
+        & .found-results {
+          @apply space-y-9 h-[650px] overflow-scroll hide-scrollbar;
+        }
+
+        & ul {
+          @apply grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4;
+        }
+
+        & .movie-card {
+          @apply relative bg-dark-100 p-3 rounded-2xl shadow-inner shadow-light-100/10;
+
+          & img {
+            @apply rounded-lg h-auto w-full;
+          }
+
+          & h3 {
+            @apply text-white font-bold text-base line-clamp-1;
+          }
+
+          & .content {
+            @apply mt-2 flex flex-row items-center flex-wrap gap-2;
+          }
+
+          & .rating {
+            @apply flex flex-row items-center gap-1;
+          }
+
+          & .rating img {
+            @apply size-4 object-contain;
+          }
+
+          & .rating p {
+            @apply font-bold text-base text-white;
+          }
+
+          & .content span {
+            @apply text-sm text-gray-100;
+          }
+
+          & .content .lang {
+            @apply capitalize text-gray-100 font-medium text-base;
+          }
+
+          & .content .year {
+            @apply text-gray-100 font-medium text-base;
+          }
+        }
+      }
+    }
+  }
+
   /** Footer **/
   .footer {
-    @apply py-8 px-[4%] max-w-5xl mx-auto;
+    @apply py-8 px-[6%] max-w-5xl mx-auto;
 
     & .footer-icons {
       @apply flex gap-5 my-5 mx-0;
@@ -321,6 +409,7 @@ root {
 
 @utility hide-scrollbar {
   -ms-overflow-style: none;
+  scrollbar-width: none;
 
   &::-webkit-scrollbar {
     display: none;

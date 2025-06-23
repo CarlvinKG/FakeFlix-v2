@@ -12,7 +12,7 @@ const API_OPTIONS = {
     }
 }
 
-const Fetch = (gm, genre) => {
+const Fetch = (gm, genre, query = '') => {
     const [list, setList] = useState([]);
     const genreID = genre;
     const type = gm;
@@ -24,6 +24,10 @@ const Fetch = (gm, genre) => {
                 endpoint =  `${API_BASE_URL}/genre/movie/list?language=en`;
             } else if (type === 'movie') {
                 endpoint = genreID !== 0 ? `${API_BASE_URL}/discover/movie?with_genres=${genreID}`
+                    : `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`;
+            } else if (type === 'query') {
+                endpoint = query
+                    ? `${API_BASE_URL}/search/movie?query=${encodeURIComponent(query)}`
                     : `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`;
             }
 
@@ -42,7 +46,7 @@ const Fetch = (gm, genre) => {
 
             if (type === 'genre') {
                 setList(data.genres || []);
-            } else if (type === 'movie') {
+            } else if (type === 'movie' || type === 'query') {
                 setList(data.results || []);
             }
 
@@ -53,7 +57,7 @@ const Fetch = (gm, genre) => {
 
     useEffect(() => {
         getList()
-    }, [genreID])
+    }, [genreID, query])
 
   return (
       list

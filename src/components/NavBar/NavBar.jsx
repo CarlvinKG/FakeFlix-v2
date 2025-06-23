@@ -1,9 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import Hamburger from './Hamburger'
 import Links from './Links'
+import { BsSearch, BsBell, BsCaretDownFill } from 'react-icons/bs'
+import {useNavigate} from "react-router-dom";
 
 const NavBar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
+    const navigate = useNavigate();
+
+    const goToLogin = () => {
+        navigate('/login');
+    };
+
+    const goToSearch = () => {
+        navigate('/search');
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -30,14 +41,14 @@ const NavBar = () => {
         </div>
 
         <div className="nav-right">
-            <img className='icons' src="./search.svg" alt="search" />
-            <img className='icons' src="./bell.svg" alt="bell" />
+            <BsSearch className='icons' size={20} onClick={goToSearch} />
+            <BsBell className='icons' size={20} />
 
             <div className="nav-profile">
                 <img className='profile' src="./profile-img.png" alt="" />
-                <img className="caret" src="./caret.svg" alt="" />
+                <BsCaretDownFill className="caret" size={15} />
                 <div className="dropdown">
-                    <p>Sign out of FakeFlix</p>
+                    <p onClick={goToLogin}>Sign out of FakeFlix</p>
                 </div>
             </div>
         </div>
