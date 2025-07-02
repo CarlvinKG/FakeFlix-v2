@@ -25,6 +25,7 @@ const Home = () => {
             </div>
         </div>
         <div className="more-cards">
+            <MovieSlider props={2} />
             <MovieSlider props={1} />
         </div>
         <Footer />

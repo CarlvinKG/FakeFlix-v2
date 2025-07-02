@@ -1,11 +1,11 @@
 import React from 'react'
 
-const ProgressBar = () => {
+const ProgressBar = ({bars = 10}) => {
   return (
     <div className="progress-bar">
-            {Array.from({ length: 10 }, (_, i) => (
+            {Array.from({ length: bars }, (_, i) => (
                 <div key={i + 'a'}
-                    className={`bar b${i} ${i === 0 ? 'activeItem' : ''}`}
+                    className={`bar ${bars === 10 ? 'b' : 't'}${i} ${i === 0 ? 'activeItem' : ''}`}
                     />
             ))}
     </div>

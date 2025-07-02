@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
+import { updateSearchCount } from '../Search/appwrite'
 
 const API_BASE_URL = 'https://api.themoviedb.org/3';
 
@@ -48,6 +49,10 @@ const Fetch = (gm, genre, query = '') => {
                 setList(data.genres || []);
             } else if (type === 'movie' || type === 'query') {
                 setList(data.results || []);
+            }
+
+            if(query && data.results.length > 0) {
+                await updateSearchCount(query, data.results[0]);
             }
 
         } catch (error) {

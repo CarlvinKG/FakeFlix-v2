@@ -1,8 +1,9 @@
 import React from 'react'
+import {Routes, Route} from 'react-router-dom'
 import Home from './pages/Home/Home'
 import Login from './pages/Login/Login'
 import Search from './pages/Search/Search'
-import {Routes, Route} from 'react-router-dom'
+import Player from './pages/Player/Player'
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
             <Route  path='/home' element={<Home />} />
             <Route  path='/login' element={<Login />} />
             <Route  path='/search' element={<Search />} />
+            <Route  path='/player/:id' element={<Player />} />
         </Routes>
     </div>
   )
