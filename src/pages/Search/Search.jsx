@@ -13,7 +13,6 @@ const Search = () => {
     useDebounce(() => {
         setDebounceSearchTerm(searchTerm)
     }, 500, [searchTerm]);
-    console.log(debounceSearchTerm);
 
     const searchResult = Fetch('query', '', debounceSearchTerm);
     const resultsRef = useRef(null);

@@ -270,7 +270,7 @@ root {
           }
 
           & .hover {
-            @apply absolute z-90 h-fit w-[250px] -top-12 left-0 rounded-sm transition ease-in-out duration-300 bg-[#181818];
+            @apply absolute z-90 h-fit w-[260px] -top-12 left-0 rounded-sm transition ease-in-out duration-300 bg-[#181818];
 
             & .hover-img-info {
               @apply flex;
@@ -307,6 +307,10 @@ root {
                 }
               }
             }
+          }
+
+          & .hover.last-on-screen {
+            @apply -top-12 left-auto right-[2%];
           }
 
           & .top-ten {
