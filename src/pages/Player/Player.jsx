@@ -29,9 +29,11 @@ const Player = () => {
     return (
         <div className="player">
             <IoArrowBackCircle size={40} onClick={() => {
-                navigate('/')
+                navigate(-1)
             }} />
-            {movieData !== undefined ? <iframe src={`https://www.youtube.com/embed/${movieData.key}`} title='trailer' frameBorder='0' allowFullScreen></iframe> : <img src={noVid} alt="noVid" /> }
+            {movieData !== undefined ? <iframe src={`https://www.youtube.com/embed/${movieData.key}?autoplay=1`}
+                                               title='trailer' frameBorder='0'
+                                               allowFullScreen></iframe> : <img src={noVid} alt="noVid" /> }
         </div>
     );
 };

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Hamburger from './Hamburger'
 import Links from './Links'
 import { BsSearch, BsBell, BsCaretDownFill } from 'react-icons/bs'
-import {useNavigate} from "react-router-dom";
+import { useNavigate, Link } from 'react-router-dom'
 
 const NavBar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -36,7 +36,7 @@ const NavBar = () => {
     <div className={`navbar ${isScrolled ? 'bg-black' : ' bg-linear-[180deg,black_10%,transparent]'}`}>
         <div className="nav-left">
             <Hamburger />
-            <img src="./logo.png" alt="logo" />
+            <Link to={'/home'}><img src="./logo.png" alt="logo" /></Link>
             <Links />
         </div>
 
@@ -51,6 +51,9 @@ const NavBar = () => {
                     <p onClick={goToLogin}>Sign out of FakeFlix</p>
                 </div>
             </div>
+        </div>
+        <div className="scrolled">
+            <div className="scroll-watcher"></div>
         </div>
     </div>
   )

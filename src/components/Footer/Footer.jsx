@@ -2,12 +2,8 @@ import React from 'react'
 import { BsFacebook, BsInstagram, BsTwitterX, BsTiktok, BsYoutube } from 'react-icons/bs'
 
 const socials = [
-    {icon: <BsFacebook size={25} />},
-    {icon: <BsInstagram size={25} />},
-    {icon: <BsTwitterX size={25} />},
-    {icon: <BsTiktok size={25} />},
-    {icon: <BsYoutube size={25} />}
-];
+    BsFacebook, BsInstagram, BsTwitterX, BsTiktok, BsYoutube
+].map((Icon) => ({ icon: <Icon size={25} /> }));
 
 const Footer = () => {
   return (

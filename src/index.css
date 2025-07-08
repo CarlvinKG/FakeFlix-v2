@@ -34,7 +34,7 @@ root {
   body {
     font-family: "poppins", serif;
     font-optical-sizing: auto;
-    background-color: #080808;
+    background-color: #141414;
     color: white;
     width: 100%;
     overflow-x: hidden;
@@ -167,6 +167,16 @@ root {
         @apply rotate-180;
       }
     }
+
+    .scrolled {
+      @apply fixed w-full h-[4px] bg-gray-500 left-0 top-0;
+
+      & .scroll-watcher {
+        @apply w-full h-full bg-white scale-0 origin-left;
+        animation: scroll-watcher linear;
+        animation-timeline: scroll();
+      }
+    }
   }
 
   /** Home **/
@@ -270,7 +280,7 @@ root {
           }
 
           & .hover {
-            @apply absolute z-90 h-fit w-[260px] -top-12 left-0 rounded-sm transition ease-in-out duration-300 bg-[#181818];
+            @apply absolute z-90 h-fit w-fit min-w-[280px] -top-12 left-0 rounded-sm transition ease-in-out duration-300 bg-[#181818] shadow-md;
 
             & .hover-img-info {
               @apply flex;
@@ -291,7 +301,7 @@ root {
                 }
 
                 & p {
-                  @apply text-[11px] h-[135px] overflow-hidden;
+                  @apply text-[11px] min-h-[135px];
                 }
               }
             }
@@ -362,7 +372,7 @@ root {
     @apply relative w-full h-full m-auto;
 
     & .search-container {
-      @apply lg:flex gap-8 w-[90%] bg-gray-800 mx-[5%] rounded-md p-10;
+      @apply lg:flex gap-8 w-[90%] mx-[5%] rounded-md p-10;
 
       & .search {
         @apply w-full lg:w-[40%] px-2 py-3 rounded-lg mt-1 min-w-[200px] mx-auto;
@@ -396,7 +406,7 @@ root {
         }
 
         & .movie-card {
-          @apply relative bg-dark-100 p-3 rounded-2xl shadow-inner shadow-light-100/10;
+          @apply relative rounded-2xl shadow-md shadow-black;
 
           & img {
             @apply rounded-lg h-auto w-full;
@@ -489,4 +499,8 @@ root {
   &::-webkit-scrollbar {
     display: none;
   }
+}
+
+@keyframes scroll-watcher {
+  to { scale: 1 1; }
 }

@@ -18,6 +18,8 @@ const Card = ({ movie, isLastVisible, topTen = false, index }) => {
     let genresFound = []
 
     const numbers = [ n1, n2, n3, n4, n5, n6, n7, n8, n9, n10 ]
+    const maxLength = 200;
+    const truncatedOverview = movie.overview.length > maxLength ? `${movie.overview.substring(0, maxLength)}...` : movie.overview;
 
     for (let i = 0; i < movie.genre_ids.length; i++) {
         genresFound.push(genres.find(genres => genres.id === movie.genre_ids[i]))
@@ -50,7 +52,7 @@ const Card = ({ movie, isLastVisible, topTen = false, index }) => {
                         </div>
                         <div className="hover-info">
                             <h3>{movie.title}</h3>
-                            <p>{movie.overview}</p>
+                            <p>{truncatedOverview}</p>
                         </div>
                     </div>
                     <div className="genres">
